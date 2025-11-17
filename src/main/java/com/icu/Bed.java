@@ -1,6 +1,5 @@
 package com.icu;
 
-
 public class Bed {
     private int id;
     private String bedNumber;
