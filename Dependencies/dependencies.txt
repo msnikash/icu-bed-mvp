@@ -1,0 +1,2 @@
+jdk-17.0.12_windows-x64_bin - https://download.oracle.com/java/17/archive/jdk-17.0.12_windows-x64_bin.exe
+mysql-installer-community-8.0.44.0 - https://dev.mysql.com/downloads/file/?id=546164
