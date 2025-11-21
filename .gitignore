@@ -5,6 +5,7 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
+Dependencies/apache-maven-3.9.11-bin
 
 # IntelliJ IDEA
 .idea/
