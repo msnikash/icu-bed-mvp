@@ -1,109 +1,54 @@
-# ICU Bed Allocation System
+## Bed Allocation System
 
-**JavaFX Mini Project – Object-Oriented Programming**
+JavaFX Mini Project – Object-Oriented Programming
 
-A simple JavaFX application to manage ICU bed allocation in a hospital. This project demonstrates object-oriented programming concepts such as classes, objects, encapsulation, and database integration using JDBC.
+This is a simple JavaFX application to manage bed allocation in a hospital. It demonstrates OOP concepts and database integration via JDBC.
 
----
-
-## Project Structure
+Project structure (important files):
 
 ```
-E:.
-│   .gitattributes
-│   .gitignore
-│   icu.sql
-│   pom.xml
-│
-├───src
-│   └───main
-│       └───java
-│           └───com
-│               └───icu
-│                       Bed.java
-│                       DBManager.java
-│                       Main.java
-│                       Patient.java
-└───target
-    └───... (compiled classes and Maven build files)
+icu-bed-mvp/
+├─ bed.sql                # SQL script to create the `bed` database and initial beds
+├─ pom.xml                # Maven build
+└─ src/main/java/com/icu/ # Java source (UI + DB manager)
+   ├─ Main.java
+   ├─ DBManager.java
+   ├─ Patient.java
+   └─ Bed.java
 ```
 
-**Key Files:**
+Key files:
+- `bed.sql` – Creates the `bed` database, `patients` and `beds` tables and inserts initial beds.
+- `DBManager.java` – JDBC code for DB operations.
+- `Main.java` – JavaFX application.
 
-* `icu.sql` – SQL script to create the database and tables with initial ICU beds.
-* `pom.xml` – Maven build file with dependencies and plugins.
-* `src/main/java/com/icu/` – JavaFX source code:
+Setup
+1. Clone the repository:
 
-  * `Main.java` – Launches the GUI.
-  * `DBManager.java` – Handles MySQL database operations.
-  * `Patient.java` – Represents patient objects.
-  * `Bed.java` – Represents ICU bed objects.
-
----
-
-## Features
-
-* Add patient details: name, age, and condition priority.
-* Automatically allocate available ICU beds based on patient priority.
-* View waiting patients, allocated patients, and free beds in real-time.
-* Uses MySQL for persistent storage.
-
----
-
-## Requirements
-
-* Java 17 or higher
-* Maven
-* MySQL 8.x or higher
-* JavaFX SDK 22 (configured via Maven dependencies)
-
----
-
-## Setup and Running
-
-1. **Clone the repository:**
-
-```bash
+```powershell
 git clone https://github.com/msnikash/icu-bed-mvp.git
 cd icu-bed-mvp
 ```
 
-2. **Setup the database:**
+2. Create the database (use MySQL Workbench or CLI):
 
-* Open MySQL Workbench (or any MySQL client).
-* Open the `icu.sql` file in Workbench.
-* Run the script to create the `icu` database, tables, and initial beds.
+- Open `bed.sql` and run the script to create the `bed` database and tables.
 
-3. **Update database credentials:**
+3. Configure DB credentials: open `DBManager.java` and set the `DB_URL`, `DB_USER`, and `DB_PASS` to match your MySQL setup (default URL uses `jdbc:mysql://localhost:3306/bed`).
 
-* Open `DBManager.java`.
-* Update the username, password, and URL to match your MySQL configuration:
+4. Build and run:
 
-```java
-private final String url = "jdbc:mysql://localhost:3306/icu";
-private final String user = "root";
-private final String password = "your_password";
-```
-
-4. **Compile and run using Maven:**
-
-```bash
+```powershell
 mvn clean compile
 mvn javafx:run
 ```
 
-5. **Using the Application:**
+Features
+- Add patients (name, age, priority) with start/end dates.
+- Automatic bed allocation (priority-aware).
+- Discharge patients and generate a discharge receipt.
 
-* Add new patients with their name, age, and condition priority.
-* The system will automatically assign a free ICU bed based on priority.
-* View the list of waiting and allocated patients in the GUI.
+Notes
+- The project uses the `bed` database name and `BED-` prefixed bed numbers in the sample SQL.
+- If you previously used `icu.sql`, the new file is `bed.sql`.
 
----
-
-## Notes
-
-* Only ICU beds are supported in this MVP.
-* Beds are automatically allocated; no manual allocation required.
-* Make sure MySQL service is running before launching the app.
-
----

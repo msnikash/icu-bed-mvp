@@ -165,6 +165,34 @@
     background-color: rgba(15,23,36,0.03);
 }
 
+/* Selected list-cell styling: make selected text dark (black) and use a light background */
+#waiting-view .list-cell:selected,
+#allocated-view .list-cell:selected,
+#beds-view .list-cell:selected,
+#waiting-view .list-cell:selected .label,
+#allocated-view .list-cell:selected .label,
+#beds-view .list-cell:selected .label {
+    -fx-text-fill: #000000; /* dark text */
+    color: #000000;
+    -fx-background-color: linear-gradient(#fffefc, #f8f8f8);
+    background-image: linear-gradient(#fffefc, #f8f8f8);
+    background-color: #fffefc;
+}
+
+/* When focused and selected, keep better contrast */
+#waiting-view .list-cell:focused:selected,
+#allocated-view .list-cell:focused:selected,
+#beds-view .list-cell:focused:selected,
+#waiting-view .list-cell:focused:selected .label,
+#allocated-view .list-cell:focused:selected .label,
+#beds-view .list-cell:focused:selected .label {
+    -fx-text-fill: #000000;
+    color: #000000;
+    -fx-background-color: linear-gradient(#f8f8f8, #f0f0f0);
+    background-image: linear-gradient(#f8f8f8, #f0f0f0);
+    background-color: #f8f8f8;
+}
+
 /* priority highlight example (requires cell factory to apply class) */
 .priority-1 {
     -fx-text-fill: #b91c1c; /* red */

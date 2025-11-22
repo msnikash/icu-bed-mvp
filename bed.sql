@@ -1,4 +1,4 @@
--- Create BED database (legacy `icu.sql` updated to BED format)
+-- Create Bed database
 CREATE DATABASE IF NOT EXISTS bed;
 
 USE bed;
@@ -11,21 +11,17 @@ CREATE TABLE IF NOT EXISTS patients (
     condition_priority VARCHAR(10),
     bed_allocated BOOLEAN DEFAULT FALSE,
     allocated_bed_id INT NULL,
-    allocated_days INT NULL,
-    start_date DATE NULL,
-    end_date DATE NULL,
-    allocated_on DATE NULL,
-    discharged BOOLEAN DEFAULT FALSE
+    allocated_days INT NULL
 );
 
 -- Create beds table
 CREATE TABLE IF NOT EXISTS beds (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    bed_number VARCHAR(20),
+    bed_number VARCHAR(10),
     is_occupied BOOLEAN DEFAULT FALSE
 );
 
--- Insert BED sample beds
+-- Insert BED beds
 INSERT INTO beds (bed_number, is_occupied) VALUES
 ('BED-101', FALSE),
 ('BED-102', FALSE),
