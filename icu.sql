@@ -1,6 +1,5 @@
--- Create BED database (legacy `icu.sql` updated to BED format)
+-- Create BED database
 CREATE DATABASE IF NOT EXISTS bed;
-
 USE bed;
 
 -- Create patients table
@@ -25,13 +24,24 @@ CREATE TABLE IF NOT EXISTS beds (
     is_occupied BOOLEAN DEFAULT FALSE
 );
 
--- Insert BED sample beds
-INSERT INTO beds (bed_number, is_occupied) VALUES
-('BED-101', FALSE),
-('BED-102', FALSE),
-('BED-103', FALSE),
-('BED-104', FALSE);
+-- Insert 100 beds
+DELIMITER $$
 
--- Optional: check tables
+CREATE PROCEDURE insert_beds()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    WHILE i <= 100 DO
+        INSERT INTO beds (bed_number, is_occupied)
+        VALUES (CONCAT('BED-', LPAD(i, 3, '0')), FALSE);
+        SET i = i + 1;
+    END WHILE;
+END$$
+
+DELIMITER ;
+
+CALL insert_beds();
+
+
+-- Optional checks
 SELECT * FROM beds;
 SELECT * FROM patients;
