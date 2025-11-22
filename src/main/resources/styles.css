@@ -1,0 +1,185 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 13px;
+    font-size: 13px; /* standard property for compatibility */
+}
+
+.button {
+    -fx-background-color: linear-gradient(#f2f2f2, #d6d6d6);
+    -fx-text-fill: #222222;
+    -fx-padding: 6 12 6 12;
+    /* standard CSS fallbacks for compatibility */
+    background-color: #f2f2f2;
+    background-image: linear-gradient(#f2f2f2, #d6d6d6);
+    color: #222222;
+    padding: 6px 12px;
+    -fx-font-size: 13px;
+    font-size: 13px;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.list-view {
+    -fx-background-insets: 0;
+}
+
+.label {
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-font-size: 13px;
+    font-size: 13px;
+}
+
+/* Output list styling */
+#waiting-view .list-cell {
+    -fx-padding: 8px 10px;
+    padding: 8px 10px;
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-text-fill: #111111;
+    color: #111111;
+}
+
+#allocated-view .list-cell {
+    -fx-padding: 8px 10px;
+    padding: 8px 10px;
+    -fx-background-color: linear-gradient(#f9f9ff, #eef0ff);
+    background-image: linear-gradient(#f9f9ff, #eef0ff);
+    background-color: #f9f9ff;
+    -fx-border-color: transparent;
+    border-color: transparent;
+}
+
+#beds-view .list-cell {
+    -fx-padding: 6px 8px;
+    padding: 6px 8px;
+    -fx-text-fill: #0b5d3b;
+    color: #0b5d3b;
+}
+
+/* Dialog styling */
+.dialog-pane.error-dialog {
+    -fx-background-color: linear-gradient(#fff5f5, #ffecec);
+    background-image: linear-gradient(#fff5f5, #ffecec);
+    background-color: #fff5f5;
+}
+.dialog-pane.info-dialog {
+    -fx-background-color: linear-gradient(#f7fbff, #eef7ff);
+    background-image: linear-gradient(#f7fbff, #eef7ff);
+    background-color: #f7fbff;
+}
+.dialog-pane .content.label {
+    -fx-font-size: 13px;
+    font-size: 13px;
+}
+
+/* Modern portal theme */
+/* App background */
+#app-root {
+    -fx-padding: 28px;
+    padding: 28px;
+}
+
+/* page background */
+.root {
+    -fx-background-color: linear-gradient(135deg, #f4f7fb 0%, #eef3f8 100%);
+    background-image: linear-gradient(135deg, #f4f7fb 0%, #eef3f8 100%);
+    background-color: #f4f7fb;
+}
+
+/* cards */
+#input-card, #lists-card {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 18px;
+    padding: 18px;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.08), 16, 0.4, 0, 6);
+    -fx-border-color: transparent;
+    border-color: transparent;
+}
+
+/* make input column narrower */
+#input-card {
+    -fx-pref-width: 300px;
+}
+
+#lists-card {
+    -fx-pref-width: 620px;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    font-size: 16px;
+    -fx-font-weight: 600;
+    font-weight: 600;
+    -fx-text-fill: #0f1724;
+    color: #0f1724;
+    -fx-padding: 0 0 6 0;
+    padding: 0 0 6px 0;
+}
+
+.section-subtitle {
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-text-fill: #475569;
+    color: #475569;
+    -fx-padding: 0 0 8 0;
+    padding: 0 0 8px 0;
+}
+
+/* modern buttons */
+.button {
+    -fx-background-color: linear-gradient(#2563eb, #1e40af);
+    background-image: linear-gradient(#2563eb, #1e40af);
+    background-color: #2563eb;
+    color: white;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px 14px;
+    padding: 8px 14px;
+    -fx-font-weight: 600;
+    font-weight: 600;
+}
+
+.button:hover {
+    -fx-opacity: 0.95;
+    opacity: 0.95;
+}
+
+/* list cells as subtle cards */
+#waiting-view .list-cell,
+#allocated-view .list-cell,
+#beds-view .list-cell {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-padding: 8px 10px;
+    padding: 8px 10px;
+}
+
+#waiting-view .list-cell:hover,
+#allocated-view .list-cell:hover,
+#beds-view .list-cell:hover {
+    -fx-background-color: rgba(15,23,36,0.03);
+    background-color: rgba(15,23,36,0.03);
+}
+
+/* priority highlight example (requires cell factory to apply class) */
+.priority-1 {
+    -fx-text-fill: #b91c1c; /* red */
+    color: #b91c1c;
+}
+
+/* compact form fields */
+.text-field, .spinner {
+    -fx-background-radius: 8px;
+}
+
+/* footer small note styling if needed */
+.muted {
+    -fx-font-size: 12px;
+    font-size: 12px;
+    -fx-text-fill: #64748b;
+    color: #64748b;
+}
